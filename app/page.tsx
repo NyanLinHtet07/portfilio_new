@@ -1,11 +1,8 @@
 import Image from "next/image";
 import Navigation from "./component/navigation";
 import {
-  IconBrandGithub,
-  IconBrandX,
   IconBrandLinkedin,
   IconBrandWhatsapp,
-  IconBrandGmail,
   IconPhoneCall,
   IconMail,
   IconPhone
