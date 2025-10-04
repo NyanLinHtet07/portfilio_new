@@ -11,6 +11,7 @@ const Navigation = () => {
                 </a>
 
                 <div className="hidden md:flex items-center gap-4 text-xs tracking-wide">
+                    <a className="btn-minimal link-underline" href="#whoAmI">About</a>
                     <a className="btn-minimal link-underline" href="#education">Education</a>
                     <a className="btn-minimal link-underline" href="#experiences">Experiences</a>
                     <a className="btn-minimal link-underline" href="#projects">Projects</a>

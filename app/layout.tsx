@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kumari Kadial",
-  description: "The Best Website will be here soon.",
+  title: "KumariKadial | Business Development",
+  description: "I am a person who is Guided by solutions, powered by results, and always elevating through learning and new challenging opportunities.",
 };
 
 export default function RootLayout({
