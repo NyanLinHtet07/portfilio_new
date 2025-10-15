@@ -10,10 +10,6 @@ import {
   IconPhoneCall,
   IconMail,
   IconPhone,
-  IconAward,
-  IconTarget,
-  IconTrendingUp,
-  IconUsers
 } from "@tabler/icons-react";
 
 export default function Home() {
