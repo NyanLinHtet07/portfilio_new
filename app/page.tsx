@@ -11,10 +11,12 @@ import {
   IconMail,
   IconPhone,
 } from "@tabler/icons-react";
+import EduScreen from "./Screen/EduScreen";
 
 export default function Home() {
   const heroRef = useScrollReveal();
   const whoAmIRef = useScrollReveal();
+  const edu = useScrollReveal();
 
   return (
     <div className="relative">
@@ -60,57 +62,10 @@ export default function Home() {
 
         <section id="whoAmI" ref={whoAmIRef} className="w-full min-h-screen space-y-8 scroll-reveal">
           {/* Section Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl sm:text-5xl font-bold accent slide-up">Who Am I</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-purple-200 mx-auto rounded-full"></div>
-          </div>
+
 
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-
-            {/* <div className="space-y-6">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-900 to-purple-100 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 shadow-xl hover-glow">
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-800 to-purple-200 rounded-full flex items-center justify-center">
-                      <IconAward className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-800">Logistics Specialist</h3>
-                      <p className="text-gray-600">3+ Years Experience</p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <IconTarget className="w-5 h-5 text-blue-600" />
-                      <span className="text-gray-700 font-medium">Supply Chain Management</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <IconTrendingUp className="w-5 h-5 text-green-600" />
-                      <span className="text-gray-700 font-medium">Compliance Standards</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <IconUsers className="w-5 h-5 text-purple-600" />
-                      <span className="text-gray-700 font-medium">Industry Collaboration</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-        
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center hover-scale transition-transform duration-300">
-                  <div className="text-2xl font-bold text-blue-600">3+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
-                </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-4 text-center hover-scale transition-transform duration-300">
-                  <div className="text-2xl font-bold text-purple-600">5+</div>
-                  <div className="text-sm text-gray-600">Industry Partners</div>
-                </div>
-              </div>
-            </div> */}
 
             {/* Right Side - Content */}
             <div className="space-y-6 col-span-2">
@@ -152,11 +107,14 @@ export default function Home() {
         </section>
 
         {/* Education Section */}
-        <section id="education" className="w-full min-h-screen flex items-center justify-center scroll-reveal">
+        <section id="education" ref={edu} className="w-full min-h-screen flex flex-col items-center space-y-4 justify-center scroll-reveal">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl sm:text-5xl font-bold accent">Education</h2>
-            <p className="text-gray-600 text-lg">Coming Soon...</p>
+            <h2 className="text-4xl sm:text-5xl font-bold accent slide-up">Accomplished Academic Achievements</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-900 to-purple-200 mx-auto rounded-full"></div>
           </div>
+
+          <EduScreen />
+
         </section>
 
         {/* Experience Section */}

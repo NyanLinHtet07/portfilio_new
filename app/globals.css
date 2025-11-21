@@ -235,3 +235,18 @@ body {
     transition: none
   }
 }
+
+
+.swiper {
+  width: 240px;
+  height: 320px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  transform: rotate(10deg); /* Apply 45-degree rotation */
+}
