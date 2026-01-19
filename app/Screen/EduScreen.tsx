@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useRef, useEffect, useState } from "react";
+import React, {  useState } from "react";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,7 +11,7 @@ import 'swiper/css/effect-cards';
 
 import { EffectCards } from "swiper/modules";
 
-import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+import { Dialog, DialogPanel } from '@headlessui/react'
 import { IconBuildingBank, IconClock, IconAward, IconArrowGuide } from "@tabler/icons-react";
 
 
@@ -27,13 +27,13 @@ interface bookItem {
 }
 
 const EduScreen = () => {
-    const [openImg, setImg] = useState('');
-    let [isOpen, setIsOpen] = useState(false);
-    let [item, setItem] = useState('');
+    //const [openImg, setImg] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
+   // let [item, setItem] = useState('');
 
-    let [bookItemData, setBookItem] = useState<bookItem | null>(null);
-    let [flippedPages, setFlippedPages] = useState<number[]>([]);
-    let [isBookOpen, setBookOpen] = useState(false);
+    const [bookItemData, setBookItem] = useState<bookItem | null>(null);
+    const [flippedPages, setFlippedPages] = useState<number[]>([]);
+    const [isBookOpen, setBookOpen] = useState(false);
 
     const togglePageFlip = (pageIndex: number) => {
         setFlippedPages((prevFlipped) =>
@@ -62,7 +62,7 @@ const EduScreen = () => {
 
     const isPageFlipped = (pageIndex: number) => flippedPages.includes(pageIndex);
 
-
+    console.log('data', isOpen)
 
     const eduList = [
         { id: 1, dip: "Bachelor of Science", dipDetail: "B.Sc.(Botany)", university: "Taunggyi University", duration: "2014 - 2019", note: null, img: "/certificate.png" },

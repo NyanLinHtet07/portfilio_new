@@ -12,10 +12,6 @@ import {
     IconChevronDown
 } from "@tabler/icons-react";
 
-const VerticalNav = () => {
-    const [activeSection, setActiveSection] = useState("home");
-    const [isVisible, setIsVisible] = useState(true);
-
     const sections = [
         { id: "home", label: "Home", icon: IconHome },
         { id: "whoAmI", label: "About", icon: IconUser },
@@ -24,6 +20,12 @@ const VerticalNav = () => {
         { id: "projects", label: "Projects", icon: IconCode },
         { id: "recommendations", label: "Reviews", icon: IconStar },
     ];
+
+const VerticalNav = () => {
+    const [activeSection, setActiveSection] = useState("home");
+    const [isVisible, setIsVisible] = useState(true);
+
+
 
     useEffect(() => {
         const handleScroll = () => {

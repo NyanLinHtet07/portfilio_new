@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import React, { useState } from "react";
-import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
+import { Button, Dialog, DialogPanel } from '@headlessui/react';
 //import { Viewer, Worker, ScrollMode } from '@react-pdf-viewer/core';
 // import '@react-pdf-viewer/core/lib/styles/index.css';
 

@@ -137,7 +137,7 @@ export default function Home() {
         </section>
 
         {/* Recommendations Section */}
-        <section id="recommendations" className="w-full min-h-screen flex items-center justify-center scroll-reveal">
+        <section id="recommendation" ref={recom} className="w-full min-h-screen flex items-center justify-center scroll-reveal">
           <div className="text-center space-y-4">
             <RecommendationScreen/>
             </div>
