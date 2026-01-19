@@ -12,11 +12,15 @@ import {
   IconPhone,
 } from "@tabler/icons-react";
 import EduScreen from "./Screen/EduScreen";
+import ExperienceScreen from "./Screen/ExperienceScreen";
+import RecommendationScreen from "./Screen/RecommendationScreen";
 
 export default function Home() {
   const heroRef = useScrollReveal();
   const whoAmIRef = useScrollReveal();
   const edu = useScrollReveal();
+  const exp = useScrollReveal();
+  const recom = useScrollReveal();
 
   return (
     <div className="relative">
@@ -118,10 +122,9 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section id="experiences" className="w-full min-h-screen flex items-center justify-center scroll-reveal">
+        <section id="experiences" ref={exp} className="w-full min-h-screen flex items-center justify-center scroll-reveal">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl sm:text-5xl font-bold accent">Experience</h2>
-            <p className="text-gray-600 text-lg">Coming Soon...</p>
+            <ExperienceScreen/>
           </div>
         </section>
 
@@ -136,9 +139,8 @@ export default function Home() {
         {/* Recommendations Section */}
         <section id="recommendations" className="w-full min-h-screen flex items-center justify-center scroll-reveal">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl sm:text-5xl font-bold accent">Recommendations</h2>
-            <p className="text-gray-600 text-lg">Coming Soon...</p>
-          </div>
+            <RecommendationScreen/>
+            </div>
         </section>
 
       </main>
