@@ -23,14 +23,14 @@ const RecommendationScreen = () => {
                 What My Colleagues Say
              </h2>
              <div>
-                <div className=" container px-6 text-justify w-10/12 rounded-xl text-slate-200 bg-slate-800 bg-opacity-30 drop-shadow-2xl shadow-lg ring-1 ring-white py-6 hover:ring-8 hover:ring-blue-900/[0.8] duration-700 transition">
+                <div className=" container px-6 text-justify w-10/12 rounded-xl text-slate-200 bg-slate-800 bg-opacity-30 drop-shadow-2xl shadow-lg ring-1 ring-white py-6 hover:ring-8 hover:ring-blue-900/80 duration-700 transition">
                  <article className=" border-b-2 border-slate-200 pb-6 flex flex-col">
-                   <Image 
+                   {/* <Image 
                      src="/quotes.png"
                      width={40}
                      height={40}
                      className=" object-cover"
-                     alt="quotes"/>
+                     alt="quotes"/> */}
                      <span className="italic tracking-wider indent-16 text-sm">
                      I had the pleasure of working with Ju Ju @ Kumari in the Business Development Department at Nordic Group Ltd for nearly two years.
                     During our time together, One of the Nordic Group youngest team members with a strong passion. She is always interested in learning new things, Never be afraid to set high standards for herself and others, 
@@ -55,14 +55,14 @@ const RecommendationScreen = () => {
              </div>
              <div className="mt-10">
              <div>
-                <div className=" container px-6 text-justify w-10/12 rounded-xl text-slate-200 bg-slate-800 bg-opacity-30 drop-shadow-2xl shadow-lg ring-1 ring-white py-6 hover:ring-8 hover:ring-blue-900/[0.8] duration-700 transition">
+                <div className=" container px-6 text-justify w-10/12 rounded-xl text-slate-200 bg-slate-800 bg-opacity-30 drop-shadow-2xl shadow-lg ring-1 ring-white py-6 hover:ring-8 hover:ring-blue-900/80 duration-700 transition">
                  <article className=" border-b-2 border-slate-200 pb-6 flex flex-col">
-                   <Image 
+                   {/* <Image 
                      src="/quotes.png"
                      width={40}
                      height={40}
                      className=" object-cover"
-                     alt="quotes"/>
+                     alt="quotes"/> */}
                      <span className="italic tracking-wider indent-16 text-sm">
                      I am writing to highly recommend Ms. Kumari Kadial @Juju, who has been an exceptional member of our
 team at NORDIC Group Limited for the past three and a half years. During her tenure with us, she has
@@ -97,7 +97,7 @@ documentation .....
                        <div className="flex min-h-full items-center justify-center p-4">
                          <DialogPanel
                            transition
-                           className="w-full max-w-xl ring-2 ring-white rounded-xl bg-white/10  backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+                           className="w-full max-w-xl ring-2 ring-white rounded-xl bg-white/10  backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0"
                          >
                        
                                <>
