@@ -6,8 +6,8 @@ const Navigation = () => {
         <nav className="mt-3 mx-4 rounded-2xl px-2 py-3 sm:px-4 sm:py-3 border border-black/5 bg-white/70 fade-in drop-shadow-2xl">
             <div className="flex items-center justify-between">
                 <a className="flex items-center gap-3 hover-lift" href="#home" aria-label="Home">
-                    <Image src="/logo.png" width={40} height={40} alt="Logo" className="object-cover" />
-                    <span className="hidden sm:inline text-lg font-semibold tracking-wide accent">Kumari Kadial</span>
+
+                    <span className="hidden sm:inline text-lg font-semibold tracking-wide accent">Ku Mary</span>
                 </a>
 
                 <div className="hidden md:flex items-center gap-4 text-xs tracking-wide">
