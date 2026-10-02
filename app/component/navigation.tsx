@@ -1,33 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const Navigation = () => {
-    return (
-        <nav className="mt-3 mx-4 rounded-2xl px-2 py-3 sm:px-4 sm:py-3 border border-black/5 bg-white/70 fade-in drop-shadow-2xl">
-            <div className="flex items-center justify-between">
-                <a className="flex items-center gap-3 hover-lift" href="#home" aria-label="Home">
+  const [scrolled, setScrolled] = useState(false);
 
-                    <span className="hidden sm:inline text-lg font-semibold tracking-wide accent">Ku Mary</span>
-                </a>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-                <div className="hidden md:flex items-center gap-4 text-xs tracking-wide">
-                    <a className="btn-minimal link-underline" href="#whoAmI">About</a>
-                    <a className="btn-minimal link-underline" href="#education">Education</a>
-                    <a className="btn-minimal link-underline" href="#experiences">Experiences</a>
-                    <a className="btn-minimal link-underline" href="#projects">Projects</a>
-                    <a className="btn-minimal link-underline" href="#recommendations">Recommendations</a>
-                </div>
+  return (
+    <nav className={`mt-3 mx-4 rounded-2xl px-2 py-3 sm:px-4 sm:py-3 border border-black/5 bg-white/70 fade-in drop-shadow-2xl transition-all duration-300 ${scrolled ? 'shadow-xl bg-white/90 border-black/10' : ''}`}>
+        <div className="flex items-center justify-between">
+            <a className="flex items-center gap-3 hover-lift hover-scale" href="#home" aria-label="Home">
+                <span className="hidden sm:inline text-lg font-semibold tracking-wide accent">Ku Mary</span>
+            </a>
 
-                <button className="md:hidden btn-minimal hover-lift" aria-label="Open menu">
-                    <span className="sr-only">Open menu</span>
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    </svg>
-                </button>
+            <div className="hidden md:flex items-center gap-4 text-xs tracking-wide">
+                <a className="btn-minimal link-underline hover-lift transition-colors duration-200" href="#whoAmI">About</a>
+                <a className="btn-minimal link-underline hover-lift transition-colors duration-200" href="#education">Education</a>
+                <a className="btn-minimal link-underline hover-lift transition-colors duration-200" href="#experiences">Experiences</a>
+                <a className="btn-minimal link-underline hover-lift transition-colors duration-200" href="#projects">Projects</a>
+                <a className="btn-minimal link-underline hover-lift transition-colors duration-200" href="#recommendations">Recommendations</a>
             </div>
-        </nav>
 
-    )
+            <button className="md:hidden btn-minimal hover-lift hover-scale" aria-label="Open menu">
+                <span className="sr-only">Open menu</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+  )
 }
 
 export default Navigation;
