@@ -8,7 +8,7 @@ import {
   IconTruckDelivery,
   IconWorld,
 } from "@tabler/icons-react";
-import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { Reveal, Stagger, StaggerItem } from "../motion/reveal";
 
 type EducationItem = {
   degree: string;
@@ -25,18 +25,26 @@ type EducationSectionProps = {
 const educationIcons = [IconSchool, IconBook, IconTruckDelivery, IconWorld, IconPlane, IconBriefcase];
 
 export default function EducationSection({ education }: EducationSectionProps) {
-  const educationRef = useScrollReveal();
-
   return (
-    <section id="education" ref={educationRef} className="scroll-reveal bg-slate-900 px-6 py-14 text-white sm:px-12 lg:px-20">
-      <p className="section-kicker text-[#b8863d]">Education</p>
-      <h2 className="mt-2 font-serif text-3xl font-semibold sm:text-4xl">Academic Foundation</h2>
+    <section id="education" className="surface-light px-6 py-14 sm:px-12 lg:px-20">
+      <Reveal as="p" className="section-kicker">
+        Education
+      </Reveal>
 
-      <div className="journey-line mt-12">
+      <Reveal as="h2" className="mt-2 font-serif text-3xl font-semibold sm:text-4xl" delay={0.06}>
+        Academic Foundation
+      </Reveal>
+
+      <Stagger className="journey-line mt-12" amount={0.08} gap={0.08}>
         {education.map((item, index) => {
           const Icon = educationIcons[index] ?? IconBook;
+
           return (
-            <article key={`${item.degree}-${item.detail}`} className={`journey-node ${item.note ? "is-active" : ""}`}>
+            <StaggerItem
+              as="article"
+              className={`journey-node ${item.note ? "is-active" : ""}`}
+              key={`${item.degree}-${item.detail}`}
+            >
               <div className="journey-icon">
                 <Icon size={25} />
               </div>
@@ -44,10 +52,10 @@ export default function EducationSection({ education }: EducationSectionProps) {
               <p>{item.detail}</p>
               <p>{item.school}</p>
               <span>{item.note ? `${item.period} · ${item.note}` : item.period}</span>
-            </article>
+            </StaggerItem>
           );
         })}
-      </div>
+      </Stagger>
     </section>
   );
 }

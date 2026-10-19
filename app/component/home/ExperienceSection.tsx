@@ -1,7 +1,8 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { IconBoxSeam, IconBriefcase, IconPuzzle, IconSchool, IconTargetArrow, IconTruckDelivery, IconUsers, type Icon } from "@tabler/icons-react";
-import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { Reveal, Stagger, StaggerItem } from "../motion/reveal";
 
 type JourneyItem = {
   role: string;
@@ -28,7 +29,7 @@ type ExperienceSectionProps = {
 const expertiseIcons = [IconBoxSeam, IconUsers, IconTruckDelivery, IconSchool, IconBriefcase];
 
 export default function ExperienceSection({ journey, expertise, objective }: ExperienceSectionProps) {
-  const experienceRef = useScrollReveal();
+  const reduceMotion = useReducedMotion();
   const nodeSpacing = 190;
   const roadmapWidth = Math.max(860, journey.length * nodeSpacing + 160);
   const roadPath = buildRoadPath(journey.length, nodeSpacing);
@@ -39,16 +40,22 @@ export default function ExperienceSection({ journey, expertise, objective }: Exp
   }));
 
   return (
-    <section id="experiences" ref={experienceRef} className="scroll-reveal bg-slate-950 px-6 py-16 text-white sm:px-12 lg:px-20">
+    <section id="experiences" className="surface-deep px-6 py-16 text-white sm:px-12 lg:px-20">
       <div className="experience-heading">
         <div>
-          <p className="section-kicker text-[#d6a85d]">Experience</p>
-          <h2 className="mt-2 font-serif text-3xl font-semibold sm:text-4xl">Professional Journey</h2>
+          <Reveal as="p" className="section-kicker text-[#d6a85d]">
+            Experience
+          </Reveal>
+          <Reveal as="h2" className="mt-2 font-serif text-3xl font-semibold sm:text-4xl" delay={0.06}>
+            Professional Journey
+          </Reveal>
         </div>
-        <p>{objective.body ?? objective.title}</p>
+        <Reveal as="p" delay={0.12}>
+          {objective.body ?? objective.title}
+        </Reveal>
       </div>
 
-      <div className="proposal-roadmap mt-12">
+      <Reveal className="proposal-roadmap mt-12" amount={0.12}>
         <div className="proposal-roadmap-track" style={{ width: roadmapWidth }}>
           <svg className="proposal-roadmap-svg" viewBox={`0 0 ${roadmapWidth} 360`} aria-hidden="true">
             <path className="proposal-road-line-shadow" d={roadPath} />
@@ -64,10 +71,14 @@ export default function ExperienceSection({ journey, expertise, objective }: Exp
             const periodLabel = getPeriodLabel(item.period);
 
             return (
-              <article
-                key={`${item.role}-${item.period}`}
+              <motion.article
                 className={`proposal-stop ${isBottom ? "is-bottom" : "is-top"}`}
+                initial={reduceMotion ? false : { opacity: 0, scale: 0.94, x: "-50%" }}
+                key={`${item.role}-${item.period}`}
                 style={{ left: x }}
+                transition={{ duration: 0.5, delay: reduceMotion ? 0 : 0.1 + index * 0.08 }}
+                viewport={{ once: true, amount: 0.4 }}
+                whileInView={{ opacity: 1, scale: 1, x: "-50%" }}
               >
                 <div className="proposal-copy">
                   <h3>{item.role}</h3>
@@ -77,33 +88,34 @@ export default function ExperienceSection({ journey, expertise, objective }: Exp
                 <div className={`proposal-node ${isBottom ? "is-green" : ""}`}>
                   <span>{periodLabel}</span>
                 </div>
-              </article>
+              </motion.article>
             );
           })}
         </div>
-      </div>
+      </Reveal>
 
-      <div className="next-strip dark-strip mt-12">
+      <Reveal className="next-strip dark-strip mt-12" amount={0.3}>
         <div className="flex items-center gap-3 font-semibold uppercase tracking-[0.18em]">
           <IconTargetArrow size={28} />
           Next Destination
         </div>
         <p>{objective.title}</p>
         <p>Maersk · MSC · DHL · Kuehne+Nagel · DB Schenker</p>
-      </div>
+      </Reveal>
 
-      <div className="expertise-grid mt-9">
+      <Stagger className="expertise-grid mt-9" amount={0.05} gap={0.07}>
         {expertiseItems.map((item) => {
           const IconComponent = item.icon as Icon;
+
           return (
-            <article key={item.title} className="expertise-card">
+            <StaggerItem as="article" className="expertise-card" key={item.title}>
               <IconComponent size={34} />
               <h3>{item.title}</h3>
               <p>{item.body}</p>
-            </article>
+            </StaggerItem>
           );
         })}
-      </div>
+      </Stagger>
     </section>
   );
 }

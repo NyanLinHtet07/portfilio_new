@@ -13,7 +13,7 @@ import { portfolio } from "./data/portfolio";
 
 export default function Home() {
   return (
-    <div className="portfolio-shell relative min-h-screen overflow-hidden">
+    <div className="portfolio-shell relative min-h-screen overflow-x-clip">
       <Navigation />
       <VerticalNav />
 

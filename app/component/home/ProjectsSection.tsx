@@ -1,14 +1,13 @@
 "use client";
 
 import { IconArrowRight, IconBuildingSkyscraper, IconExternalLink } from "@tabler/icons-react";
-import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { Reveal, Stagger, StaggerItem } from "../motion/reveal";
 
 type ProjectsSectionProps = {
   projects: string[];
 };
 
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
-  const projectRef = useScrollReveal();
   const projectStories = projects.map((project, index) => ({
     number: String(index + 1).padStart(2, "0"),
     title: project,
@@ -16,34 +15,39 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   }));
 
   return (
-    <section id="projects" ref={projectRef} className="scroll-reveal bg-slate-900 px-6 py-16 text-white sm:px-12 lg:px-20">
+    <section id="projects" className="surface-light px-6 py-16 sm:px-12 lg:px-20">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <p className="section-kicker text-[#b8863d]">Projects</p>
-          <h2 className="mt-2 font-serif text-3xl font-semibold sm:text-4xl">Accomplished Projects</h2>
+          <Reveal as="p" className="section-kicker">
+            Projects
+          </Reveal>
+          <Reveal as="h2" className="mt-2 font-serif text-3xl font-semibold sm:text-4xl" delay={0.06}>
+            Accomplished Projects
+          </Reveal>
         </div>
-        <a href="#projects" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em]">
+
+        <Reveal as="a" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] transition-colors duration-200 hover:text-[#8a6320]" delay={0.12} href="#projects">
           View All Cases <IconArrowRight size={15} />
-        </a>
+        </Reveal>
       </div>
 
-      <div className="stories-grid mt-9">
+      <Stagger className="stories-grid mt-9" amount={0.05} gap={0.07}>
         {projectStories.map((story) => (
-          <article key={story.number} className="story-card">
+          <StaggerItem as="article" className="story-card" key={story.number}>
             <div>
               <span>{story.number}</span>
               <h3>{story.title}</h3>
               <p>{story.body}</p>
               <a href="#recommendations">
-                <IconExternalLink size={16} /> View Project
+                <IconExternalLink aria-hidden="true" size={16} /> View Project
               </a>
             </div>
             <div className="story-visual">
-              <IconBuildingSkyscraper size={58} />
+              <IconBuildingSkyscraper aria-hidden="true" size={58} />
             </div>
-          </article>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 }
